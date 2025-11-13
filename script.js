@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     applyDayTint()
 
+    setInterval(applyDayTint, 1000 * 60 * 30)
+
     if (prefersReducedMotion) {
         return
     }

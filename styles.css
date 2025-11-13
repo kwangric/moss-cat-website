@@ -59,7 +59,6 @@ body {
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     z-index: 2;
-    opacity: 0.85;
     user-select: none;
     -webkit-user-select: none;
 }
@@ -68,6 +67,7 @@ body {
     background: linear-gradient(180deg,
         var(--mc-gradient-top) 0%,
         var(--mc-gradient-bottom) 100%);
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
@@ -145,7 +145,7 @@ body {
     background: radial-gradient(circle at 40% 40%, var(--mc-green-dark), var(--mc-green-deep));
     top: 50%;
     left: 70%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
     animation: floatBlob3 30s ease-in-out infinite alternate;
 }
 
