@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title | default: "Moss Cat" }}</title>
+    <meta name="description" content="{{ description | default: 'Moss Cat is an art collective that dreams of a gentle future. Nature-inspired art and jewelry that instills hope and a longing for a brighter world.' }}">
+    <meta name="keywords" content="Moss Cat, jewelry, candles, nature inspired art, art collective, moss aesthetic">
+    <meta name="author" content="Moss Cat">
+    <meta property="og:title" content="{{ og_title | default: 'Moss Cat' }}">
+    <meta property="og:description" content="{{ og_description | default: description }}">
+    <meta property="og:url" content="https://mosscat.co">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mosscat.co/og-image.png"> 
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+    {{content}}
+</body>
+</html>
