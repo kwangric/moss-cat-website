@@ -23,7 +23,7 @@ body {
     color: var(--mc-text);
 }
 
-.mc-loading {
+.mc-atmosphere {
     min-height: 100vh;
     display: flex;
     align-items: center;

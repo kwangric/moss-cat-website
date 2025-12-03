@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const root = document.querySelector(".mc-loading")
+    const root = document.querySelector(".mc-atmosphere")
     const blobs = Array.from(document.querySelectorAll(".mc-blur"))
 
     if (!root) return
