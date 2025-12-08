@@ -3,7 +3,6 @@ layout: layouts/base.liquid
 title: "About"
 description: "Learn more about Moss Cat."
 permalink: /about/
-draft: true
 ---
 
 # About Moss Cat
