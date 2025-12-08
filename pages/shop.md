@@ -3,6 +3,7 @@ layout: layouts/base.liquid
 title: "Shop · Moss Cat"
 description: "Visit the Moss Cat shop."
 permalink: /shop/
+draft: true
 ---
 
 # Shop

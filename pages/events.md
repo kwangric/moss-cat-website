@@ -3,6 +3,7 @@ layout: layouts/base.liquid
 title: "Events"
 description: "Upcoming markets and art fairs."
 permalink: /events/
+draft: true
 ---
 
 # Events

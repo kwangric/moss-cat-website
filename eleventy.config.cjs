@@ -1,4 +1,11 @@
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addTransform("drafts", function (content) {
+        if (this.page.data.draft && process.env.ELEVENTY_ENV === "production") {
+            return false
+        }
+        return content
+    })
+
     eleventyConfig.addPassthroughCopy("styles.css")
     eleventyConfig.addPassthroughCopy("script.js")
     
@@ -9,8 +16,8 @@ module.exports = function (eleventyConfig) {
 
     return {
         dir: {
-        input: ".",
-        output: "_site"
+            input: ".",
+            output: "_site"
         }
     }
 }
