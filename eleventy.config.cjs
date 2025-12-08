@@ -1,6 +1,10 @@
 module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("drafts", function (content) {
-        if (this.page.data.draft && process.env.ELEVENTY_ENV === "production") {
+        const data = this.page?.data
+        if (!data || !("draft" in data)) {
+            return content
+        }
+        if (data.draft === true && process.env.ELEVENTY_ENV === "production") {
             return false
         }
         return content
