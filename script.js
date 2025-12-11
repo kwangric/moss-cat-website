@@ -87,25 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createBloom(clientX, clientY) {
-        const rect = root.getBoundingClientRect()
-
         const bloom = document.createElement("span")
         bloom.className = "mc-bloom"
 
-        const left = ((clientX - rect.left) / rect.width) * 100
-        const top = ((clientY - rect.top) / rect.height) * 100
+        bloom.style.left = clientX + "px"
+        bloom.style.top = clientY + "px"
 
-        bloom.style.left = left + "%"
-        bloom.style.top = top + "%"
-
-        root.appendChild(bloom)
+        document.body.appendChild(bloom)
 
         setTimeout(() => {
             bloom.remove()
         }, 2000)
     }
 
-    root.addEventListener("pointerdown", (event) => {
+    document.addEventListener("pointerdown", (event) => {
         if (event.button !== 0 && event.button !== undefined) return
         createBloom(event.clientX, event.clientY)
     })

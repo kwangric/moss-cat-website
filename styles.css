@@ -22,11 +22,12 @@ body {
     background: var(--mc-bg);
     color: var(--mc-text);
     min-height: 100vh;
+
 }
 
 .mc-page {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 900px;
     margin: 0 auto;
     padding: 4rem 2rem;
@@ -40,7 +41,7 @@ body {
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     background: radial-gradient(circle at top left, var(--mc-green-dark) 0, var(--mc-bg) 45%),
         radial-gradient(circle at bottom right, var(--mc-green-deep) 0, var(--mc-bg) 40%);
 }
@@ -181,7 +182,7 @@ body {
     transform: translate(-50%, -50%) scale(0.6);
     will-change: transform, opacity;
     animation: bloom 1900ms ease-out forwards;
-    z-index: 2;
+    z-index: 3;
 }
 
 @keyframes bloom {
