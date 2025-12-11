@@ -21,16 +21,26 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--mc-bg);
     color: var(--mc-text);
+    min-height: 100vh;
 }
 
-.mc-atmosphere {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
+.mc-page {
     position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+}
+
+/* Atmosphere */
+
+.mc-atmosphere {
+    position: fixed;
+    inset: 0;
     overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
     background: radial-gradient(circle at top left, var(--mc-green-dark) 0, var(--mc-bg) 45%),
         radial-gradient(circle at bottom right, var(--mc-green-deep) 0, var(--mc-bg) 40%);
 }
@@ -43,70 +53,6 @@ body {
     mix-blend-mode: soft-light;
     opacity: 0.5;
     z-index: 0;
-}
-
-.mc-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1.5rem;
-    position: relative;
-    max-width: 650px;
-    width: 100%;
-    padding: 3rem;
-    border-radius: 2rem;
-    background: linear-gradient(180deg, rgba(83, 85, 87, 0.5) 0%, rgba(45, 45, 45, 0.8) 100%);
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    z-index: 2;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.mc-gradient {
-    background: linear-gradient(180deg,
-        var(--mc-gradient-top) 0%,
-        var(--mc-gradient-bottom) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.mc-title {
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-}
-
-.mc-hr {
-    margin: 1rem 0;
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.mc-copy {
-    font-size: 1rem;
-    line-height: 1.5;
-    letter-spacing: 0.1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-.mc-logo {
-    flex-shrink: 0;
-    margin-left: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mc-logo svg {
-    display: block;
-    height: 8rem;
-    width: auto;
-    max-width: 100%;
 }
 
 .mc-blur {
@@ -154,7 +100,6 @@ body {
     animation: floatBlob3 30s ease-in-out infinite alternate;
 }
 
-/* Ambient motes (soft glowing dust / spores) */
 .mc-mote {
     position: absolute;
     width: 4px;
@@ -256,6 +201,88 @@ body {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .mc-blur,
+    .mc-mote,
+    .mc-bloom {
+        animation: none !important;
+    }
+}
+
+/* Content */
+
+.mc-landing-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 8rem);
+}
+
+.mc-landing-card {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+    position: relative;
+    max-width: 650px;
+    width: 100%;
+    padding: 3rem;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, rgba(83, 85, 87, 0.5) 0%, rgba(45, 45, 45, 0.8) 100%);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), inset 0px 2px 1px rgba(255, 255, 255, 0.3), inset 0px -2px 1px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 2;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.mc-gradient {
+    background: linear-gradient(180deg,
+        var(--mc-gradient-top) 0%,
+        var(--mc-gradient-bottom) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mc-title {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.mc-hr {
+    margin: 1rem 0;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mc-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.mc-logo {
+    flex-shrink: 0;
+    margin-left: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mc-logo svg {
+    display: block;
+    height: 8rem;
+    width: auto;
+    max-width: 100%;
+}
+
 @media (max-width: 600px) {
     .mc-card {
         flex-direction: column;
@@ -266,14 +293,5 @@ body {
     .mc-logo {
         margin-left: 0;
         margin-top: 1.25rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .mc-blur,
-    .mc-mote,
-    .mc-bloom {
-        animation: none !important;
     }
 }
